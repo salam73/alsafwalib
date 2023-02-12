@@ -18,7 +18,7 @@ class UserPage extends StatelessWidget {
                    context,MaterialPageRoute(builder: (context)=>const MainPage())
                );
              },
-             child: Card(
+             child: const Card(
                elevation: 5,
                child: SizedBox(
                  width: 300,
@@ -35,7 +35,7 @@ class UserPage extends StatelessWidget {
                    context,MaterialPageRoute(builder: (context)=>const AdminPage())
                );
              },
-             child: Card(
+             child: const Card(
                child: SizedBox(
                  width: 300,
                  height: 60,

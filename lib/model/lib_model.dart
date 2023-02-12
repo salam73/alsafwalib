@@ -4,12 +4,11 @@
 
 import 'dart:convert';
 
-Lab labFromJson(String str) => Lab.fromJson(json.decode(str));
+BooksLab labFromJson(String str) => BooksLab.fromJson(json.decode(str));
 
-String labToJson(Lab data) => json.encode(data.toJson());
 
-class Lab {
-  Lab({
+class BooksLab {
+  BooksLab({
     required this.object,
     required this.results,
     required this.nextCursor,
@@ -25,7 +24,7 @@ class Lab {
   final ObjectEnum type;
   final Page page;
 
-  factory Lab.fromJson(Map<String, dynamic> json) => Lab(
+  factory BooksLab.fromJson(Map<String, dynamic> json) => BooksLab(
     object: json["object"],
     results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
     nextCursor: json["next_cursor"],
@@ -34,14 +33,7 @@ class Lab {
     page: Page.fromJson(json["page"]),
   );
 
-  Map<String, dynamic> toJson() => {
-    "object": object,
-    "results": List<dynamic>.from(results.map((x) => x.toJson())),
-    "next_cursor": nextCursor,
-    "has_more": hasMore,
-    "type": objectEnumValues.reverse[type],
-    "page": page.toJson(),
-  };
+
 }
 
 class Page {
@@ -98,20 +90,7 @@ class Result {
     url: json["url"],
   );
 
-  Map<String, dynamic> toJson() => {
-    "object": objectEnumValues.reverse[object],
-    "id": id,
-    "created_time": createdTime.toIso8601String(),
-    "last_edited_time": lastEditedTime.toIso8601String(),
-    "created_by": createdBy.toJson(),
-    "last_edited_by": lastEditedBy.toJson(),
-    "cover": cover,
-    "icon": icon,
-    "parent": parent.toJson(),
-    "archived": archived,
-    "properties": properties.toJson(),
-    "url": url,
-  };
+
 }
 
 class TedBy {
@@ -160,10 +139,7 @@ class Parent {
     databaseId: json["database_id"],
   );
 
-  Map<String, dynamic> toJson() => {
-    "type": parentTypeValues.reverse[type],
-    "database_id": databaseId,
-  };
+
 }
 
 enum ParentType { DATABASE_ID }
@@ -210,18 +186,7 @@ class Properties {
     name: Name.fromJson(json["Name"]),
   );
 
-  Map<String, dynamic> toJson() => {
-    "Date": date.toJson(),
-    "Person": person.toJson(),
-    "Files & media 1": filesMedia1.toJson(),
-    "صورة": properties.toJson(),
-    "المرحله": empty.toJson(),
-    "pdf": pdf.toJson(),
-    "Files & media 2": filesMedia2.toJson(),
-    "Files & media": filesMedia.toJson(),
-    "Tags": tags.toJson(),
-    "Name": name.toJson(),
-  };
+
 }
 
 class Date {
@@ -241,11 +206,7 @@ class Date {
     date: DateClass.fromJson(json["date"]),
   );
 
-  Map<String, dynamic> toJson() => {
-    "id": dateIdValues.reverse[id],
-    "type": dateTypeValues.reverse[type],
-    "date": date.toJson(),
-  };
+
 }
 
 class DateClass {
