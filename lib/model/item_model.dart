@@ -3,7 +3,9 @@ class Item {
   final String category;
   final String pageID;
   final bool available;
-  final String test;
+  final String image;
+  final int raf;
+  final int tasalsel;
   /*final String category;
   final int price;
   final DateTime date;
@@ -18,7 +20,9 @@ class Item {
     required this.category,
     required this.available,
     required this.pageID,
-    required this.test,
+    required this.image,
+    required this.raf,
+    required this.tasalsel,
    /* required this.category,
     required this.price,
     required this.date,
@@ -57,8 +61,11 @@ class Item {
   factory Item.fromMap2(Map<String, dynamic> map) {
     final properties = map['properties'] as Map<String, dynamic>;
     final pageId = map['id'] as String;
-    final nameList = (properties['Name']?['title'] ?? []);
-    final testList = (properties['test']?['rich_text'] ?? []);
+    final name = (properties['Name']?['title'] ?? []);
+    final raf = (properties['الرف']?['number'] ?? 0);
+    final tasalsel = (properties['التسلسل']?['number'] ?? 0);
+
+    final image = (properties['صورة']?['files'] ?? []);
 
   /*  final dic = (properties['discerption']?['rich_text'] ?? []);
     final pageid = (properties['pageid']?['rich_text'] ?? []);
@@ -66,11 +73,15 @@ class Item {
     final pdfList = (properties['pdf']?['files'] ?? []);
     final dateStr = properties['Date']?['date']?['start'];*/
     return Item(
-      test: testList.isNotEmpty ? testList[0]['plain_text'] : '?',
-      name: nameList.isNotEmpty ? nameList[0]['plain_text'] : '?',
-      category: properties['المرحله']?['select']?['name'] ?? '',
-      available: properties['available']?['checkbox'] ?? false,
-     pageID: pageId
+
+      name: name.isNotEmpty ? name[0]['plain_text'] : '',
+      category: properties['الاقسام']?['select']?['name'] ?? '',
+      available: properties['مستعار']?['checkbox'] ?? false,
+      raf: raf,
+      tasalsel: tasalsel,
+     pageID: pageId,
+      image: image.isNotEmpty? image[0]['file']['url']:'',
+
      /* dic: dic.isNotEmpty ? dic[0]['plain_text'] : '?',
       pageid: pageid.isNotEmpty ? pageid[0]['plain_text'] : '',
       category: properties['category']?['select']?['name'] ?? '',

@@ -1,4 +1,5 @@
 import 'package:alsafwalib/api_connection/notion_api.dart';
+import 'package:alsafwalib/screens/home_page.dart';
 import 'package:alsafwalib/screens/main_page.dart';
 import 'package:alsafwalib/screens/user_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  NotionApi(),
+      home:// HomePge()
+      NotionApi(),
     );
   }
 }
