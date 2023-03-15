@@ -39,6 +39,14 @@ dependencies:
   flutter_vector_icons:
   notion_api:
   url_launcher:
+  firebase_core:
+  firebase_database: ^10.0.14
+  cloud_firestore: ^4.4.4
+  image_picker: ^0.8.7
+  file_picker:
+  firebase_storage:
+
+
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:alsafwalib/screens/general_books/math_books.dart';
 
 import '../Constant/constant.dart';
+import 'firebase_screen.dart';
 
 class Books extends StatelessWidget {
   const Books({Key? key}) : super(key: key);
@@ -18,7 +19,11 @@ class Books extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
 
               children:  [
-                InkWell(
+                sectionName(context,'هندسة'),
+                sectionName(context,'قانون'),
+                sectionName(context,'صيدلة'),
+                sectionName(context,'تخدير'),
+              /*  InkWell(
                   onTap: (){
                     Navigator.push(
                         context,MaterialPageRoute(builder: (context)=> MathBooks())
@@ -34,83 +39,18 @@ class Books extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('فيزياء'),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('قانون'),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('إدارة أعمال'),
-                    ),
-                  ),
-                ),
+                ),*/
+
               ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
 
               children:  [
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('هندسة'),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('طب'),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('فسلجه'),
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Constant().mainClassColor,
-                  child: SizedBox(
-                    width: 150,
-                    height: 60,
-                    child: Center(
-                      child: Text('تمريض'),
-                    ),
-                  ),
-                ),
+                sectionName(context,'تحليلات'),
+                sectionName(context,'طب أسنان'),
+                sectionName(context,'التربية الرياضية'),
+                sectionName(context,'الادارة والاقتصاد'),
               ],
             ),
           ],
@@ -118,4 +58,24 @@ class Books extends StatelessWidget {
       ),
     );
   }
+  sectionName(context, name){
+    return  InkWell(
+      onTap: (){
+        Navigator.push(
+            context,MaterialPageRoute(builder: (context)=> FirebaseScreen(part: name,))
+        );
+      },
+      child:  Card(
+        color: Constant().mainClassColor,
+        child: SizedBox(
+          width: 150,
+          height: 60,
+          child: Center(
+            child: Text(name),
+          ),
+        ),
+      ),
+    );
+  }
+
 }

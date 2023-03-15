@@ -1,3 +1,4 @@
+import 'package:alsafwalib/views/pickup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +11,10 @@ class AdminPage extends StatefulWidget {
 
 class _AdminPageState extends State<AdminPage> {
   final _formKey = GlobalKey<FormState>();
+  String? user;
+  String? password;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +30,9 @@ class _AdminPageState extends State<AdminPage> {
                 if (value!.isEmpty) {
                   return 'Please enter a username';
                 }
+                else{
+                  user=value;
+                }
                 return null;
               },
             ),
@@ -35,12 +43,11 @@ class _AdminPageState extends State<AdminPage> {
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter a password';
-                }
-                else if(value=='alsafia'){
-                  print('access is ok');
 
                 }
+
                 else{
+                  password=value;
                   print('access denied');
                 }
                 return null;
@@ -50,7 +57,13 @@ class _AdminPageState extends State<AdminPage> {
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
 
-                }
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PickUpScreen()));
+                  }
+
               },
               child: Text('Submit'),
             ),

@@ -33,7 +33,6 @@ class Item {
     required this.pageid,*/
   });
 
-  //this is for karbala project
  /* factory Item.fromMap(Map<String, dynamic> map) {
     final properties = map['properties'] as Map<String, dynamic>;
     final nameList = (properties['myname']?['title'] ?? []) as List;

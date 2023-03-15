@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:alsafwalib/screens/books.dart';
 import 'package:alsafwalib/screens/research.dart';
@@ -7,6 +8,12 @@ import '../Constant/constant.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
+
+
+  getItems(){
+    final CollectionReference books=FirebaseFirestore.instance.collection('books/0iLCBezOPlIbnjLNqth0/users');
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +40,7 @@ class MainPage extends StatelessWidget {
                   height: 60,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                    children: const [
 
                       Text('💻 ', style: TextStyle(fontSize: 30),),
                       Text('هندسة تنقنيات الحاسوب'),
@@ -61,7 +68,7 @@ class MainPage extends StatelessWidget {
                       height: 60,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        children: const [
                           Text('🎓', style: TextStyle(fontSize: 30),),
                           Text('بـــــحوث التـــــخرج'),
                         ],
@@ -83,7 +90,7 @@ class MainPage extends StatelessWidget {
                       height: 60,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
+                        children: const [
                           Text('📚', style: TextStyle(fontSize: 30),),
                           Text('كتـــــب عامـــــــــة'),
                         ],

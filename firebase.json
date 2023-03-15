@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": "build/web",
-    "site":"app4iraq",
+    "site":"alsafwalib",
     "ignore": [
       "firebase.json",
       "**/.*",

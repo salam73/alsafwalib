@@ -1,6 +1,9 @@
 import 'dart:convert';
 
 import 'package:alsafwalib/model/item_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 //import 'package:alsafwalib/model/lib_model.dart' as lab;
 import 'package:flutter/material.dart';
 import 'package:notion_api/notion.dart';
@@ -46,6 +49,7 @@ class _NotionApiState extends State<NotionApi> {
   }
 
   getItems2() async {
+
     // List<Item> myItems = [];
     try {
       final response = await http.post(
@@ -76,11 +80,40 @@ class _NotionApiState extends State<NotionApi> {
 
         iterableBooksList = dynamicMyData.map((e) => e);
         //  print(data['results']);
+int numb=0;
+
+final CollectionReference books=FirebaseFirestore.instance.collection('books');
 
         for (Item v in iterableBooksList.toList().reversed) {
+          numb++;
          print(v.name);
-         print(v.tasalsel);
-         print(v.raf);
+         print('الاقسام :${v.category}');
+         print('تسلسل: ${v.tasalsel}');
+         print('الرف :${v.raf}');
+         print('الرف :${v.image}');
+         print('الرف :${v.available}');
+
+
+         DatabaseReference ref = FirebaseDatabase.instance.ref("books");
+
+        /* await ref.set({
+           "name": v.name,
+           "category": v.category,
+           "sequence": v.tasalsel,
+           "raf": v.raf,
+           "image": v.image,
+           "available": v.available,
+
+         });*/
+          books.add({
+            "name":v.name,
+            "الأقسام":v.category,
+            "sequence": v.tasalsel,
+            "raf": v.raf,
+            "image": v.image,
+            "available": v.available,
+          });
+
         }
 
       }
@@ -187,6 +220,24 @@ class _NotionApiState extends State<NotionApi> {
     }
   }
 
+  getDataRealTime(){
+    DatabaseReference ref = FirebaseDatabase.instance.ref("books/تخدير");
+
+    ref.onValue.listen((event) {
+
+
+      Map book=event.snapshot.value as Map;
+
+      if (kDebugMode) {
+        print(book);
+      }
+      setState(() {
+
+      });
+    });
+
+  }
+
   /* "id":"Fj%3F%5E",
   "rich_text": "text",
   "text": [{"type": "text", "text": { "content": "To Do"} }]*/
@@ -197,6 +248,7 @@ class _NotionApiState extends State<NotionApi> {
     super.initState();
     level = 'المرحلة الرابعة';
     getItems2();
+   // getDataRealTime();
   }
 
   @override
