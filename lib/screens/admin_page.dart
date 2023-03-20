@@ -1,6 +1,7 @@
-import 'package:alsafwalib/views/pickup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import '../views/add_books.dart';
 
 class AdminPage extends StatefulWidget {
   const AdminPage({Key? key}) : super(key: key);
@@ -26,13 +27,16 @@ class _AdminPageState extends State<AdminPage> {
           children: [
             TextFormField(
               decoration: InputDecoration(labelText: 'Username'),
+              onChanged: (value){
+                setState(() {
+                  user=value;
+                });
+              },
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter a username';
                 }
-                else{
-                  user=value;
-                }
+
                 return null;
               },
             ),
@@ -40,28 +44,30 @@ class _AdminPageState extends State<AdminPage> {
             TextFormField(
               obscureText: true,
               decoration: InputDecoration(labelText: 'Password'),
+              onChanged: (value){
+                setState(() {
+                  password=value;
+                });
+              },
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter a password';
 
                 }
 
-                else{
-                  password=value;
-                  print('access denied');
-                }
+
                 return null;
               },
             ),
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-
-
+                  if(password=='1234') {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PickUpScreen()));
+                            builder: (context) => const AddBooks()));
+                  }
                   }
 
               },

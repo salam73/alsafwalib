@@ -1,10 +1,12 @@
 import 'package:alsafwalib/api_connection/notion_api.dart';
 import 'package:alsafwalib/screens/admin_page.dart';
-import 'package:alsafwalib/screens/firebase_screen.dart';
+import 'package:alsafwalib/screens/books.dart';
+import 'package:alsafwalib/screens/books_list.dart';
 import 'package:alsafwalib/screens/home_page.dart';
 import 'package:alsafwalib/screens/main_page.dart';
+import 'package:alsafwalib/screens/my_tab.dart';
 import 'package:alsafwalib/screens/user_page.dart';
-import 'package:alsafwalib/views/pickup_screen.dart';
+import 'package:alsafwalib/views/add_books.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -38,7 +40,11 @@ class MyApp extends StatelessWidget {
 
        // MainPage()
       //   NotionApi(),
-      UserPage()
+     // UserPage()
+     // Books()
+     // AdminPage()
+      AddBooks()
+    //  ExamplePage()
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:alsafwalib/screens/general_books/math_books.dart';
 
 import '../Constant/constant.dart';
-import 'firebase_screen.dart';
+import 'books_list.dart';
 
 class Books extends StatelessWidget {
   const Books({Key? key}) : super(key: key);
@@ -62,7 +62,7 @@ class Books extends StatelessWidget {
     return  InkWell(
       onTap: (){
         Navigator.push(
-            context,MaterialPageRoute(builder: (context)=> FirebaseScreen(part: name,))
+            context,MaterialPageRoute(builder: (context)=> BooksList(part: name,))
         );
       },
       child:  Card(
