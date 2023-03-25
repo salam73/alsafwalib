@@ -8,46 +8,49 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('المكتبة الإلكترونيه'),),
+        appBar: AppBar(
+          title: const Text('المكتبة الإلكترونيه'),
+        ),
         body: Center(
-      child: Column(
-         children: [
-           InkWell(
-             onTap: (){
-               Navigator.push(
-                   context,MaterialPageRoute(builder: (context)=>const MainPage())
-               );
-             },
-             child: const Card(
-               elevation: 5,
-               child: SizedBox(
-                 width: 300,
-                 height: 60,
-                 child: Center(
-                   child: Text('Enter as User'),
-                 ),
-               ),
-             ),
-           ),
-           InkWell(
-             onTap: (){
-               Navigator.push(
-                   context,MaterialPageRoute(builder: (context)=>const AdminPage())
-               );
-             },
-             child: const Card(
-               child: SizedBox(
-                 width: 300,
-                 height: 60,
-                 child: Center(
-                   child: Text('Enter as Admin'),
-                 ),
-               ),
-             ),
-           ),
-         ],
-
-      ),
-    ));
+          child: Column(
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainPage()));
+                },
+                child: const Card(
+                  elevation: 5,
+                  child: SizedBox(
+                    width: 300,
+                    height: 60,
+                    child: Center(
+                      child: Text('Enter as User'),
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AdminPage()));
+                },
+                child: const Card(
+                  child: SizedBox(
+                    width: 300,
+                    height: 60,
+                    child: Center(
+                      child: Text('Enter as Admin'),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }

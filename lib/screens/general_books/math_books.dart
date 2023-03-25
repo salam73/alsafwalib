@@ -15,12 +15,15 @@ class _MathBooksState extends State<MathBooks> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('كتب رياضيات'),
+        title: const Text('كتب رياضيات'),
       ),
       body: Center(
         child: Column(
           children: [
-            Text('اللون الاحمر يدل على أن الكتاب مستعار',style: TextStyle(fontSize: 20),),
+            const Text(
+              'اللون الاحمر يدل على أن الكتاب مستعار',
+              style: TextStyle(fontSize: 20),
+            ),
             InkWell(
               onTap: () {
                 if (color1 == Colors.white) {
@@ -31,7 +34,7 @@ class _MathBooksState extends State<MathBooks> {
               },
               child: Card(
                 color: color1,
-                child:const SizedBox(
+                child: const SizedBox(
                   width: 150,
                   height: 60,
                   child: Center(
@@ -50,7 +53,7 @@ class _MathBooksState extends State<MathBooks> {
               },
               child: Card(
                 color: color2,
-                child:const SizedBox(
+                child: const SizedBox(
                   width: 150,
                   height: 60,
                   child: Center(

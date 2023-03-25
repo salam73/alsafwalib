@@ -6,7 +6,6 @@ import 'package:alsafwalib/screens/level_two/books_level_two.dart';
 import '../Constant/constant.dart';
 import 'level_four/books_level_four.dart';
 
-
 class Steps extends StatelessWidget {
   const Steps({Key? key}) : super(key: key);
 
@@ -14,21 +13,22 @@ class Steps extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('هندسة تقنيات الحاسوب'),
+        title: const Text('هندسة تقنيات الحاسوب'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children:  [
+          children: [
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context)=>const BooksLevelOne())
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BooksLevelOne()));
               },
               child: Card(
                 color: Constant().classLibraryColor,
-                child: SizedBox(
+                child: const SizedBox(
                   width: 300,
                   height: 60,
                   child: Center(
@@ -38,14 +38,15 @@ class Steps extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context)=>const BooksLevelTwo())
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BooksLevelTwo()));
               },
               child: Card(
                 color: Constant().classLibraryColor,
-                child: SizedBox(
+                child: const SizedBox(
                   width: 300,
                   height: 60,
                   child: Center(
@@ -55,14 +56,15 @@ class Steps extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context)=>const BooksLevelThree())
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BooksLevelThree()));
               },
               child: Card(
                 color: Constant().classLibraryColor,
-                child: SizedBox(
+                child: const SizedBox(
                   width: 300,
                   height: 60,
                   child: Center(
@@ -72,14 +74,15 @@ class Steps extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.push(
-                    context,MaterialPageRoute(builder: (context)=>const BooksLevelFour())
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BooksLevelFour()));
               },
               child: Card(
                 color: Constant().classLibraryColor,
-                child: SizedBox(
+                child: const SizedBox(
                   width: 300,
                   height: 60,
                   child: Center(

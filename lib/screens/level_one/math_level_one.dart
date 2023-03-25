@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../Constant/constant.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class MathLevelOne extends StatelessWidget {
   const MathLevelOne({Key? key}) : super(key: key);
 
@@ -16,20 +15,22 @@ class MathLevelOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('كتب رياضيات المرحلة الاولى'),),
+      appBar: AppBar(
+        title: const Text('كتب رياضيات المرحلة الاولى'),
+      ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-              children:  [
+              children: [
                 InkWell(
-                  onTap:()=>Constant().myLaunchUrl('https://drive.google.com/drive/folders/1t--E_Cp5lKnHgs5RnZYYGh2WiAgFj6Hs?usp=sharing'),
+                  onTap: () => Constant().myLaunchUrl(
+                      'https://drive.google.com/drive/folders/1t--E_Cp5lKnHgs5RnZYYGh2WiAgFj6Hs?usp=sharing'),
                   child: Card(
                     color: Constant().classLibraryColor,
-                    child: SizedBox(
+                    child: const SizedBox(
                       width: 150,
                       height: 60,
                       child: Center(child: Text('math2')),
@@ -38,7 +39,7 @@ class MathLevelOne extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -48,7 +49,7 @@ class MathLevelOne extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -58,7 +59,7 @@ class MathLevelOne extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -70,11 +71,10 @@ class MathLevelOne extends StatelessWidget {
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-              children:  [
+              children: [
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -84,7 +84,7 @@ class MathLevelOne extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -94,7 +94,7 @@ class MathLevelOne extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -104,7 +104,7 @@ class MathLevelOne extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().classLibraryColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(

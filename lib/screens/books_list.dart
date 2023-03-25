@@ -161,18 +161,9 @@ class _BooksListState extends State<BooksList> {
                                                 if (loadingProgress == null) {
                                                   return child;
                                                 }
-                                                return Center(
+                                                return const Center(
                                                   child:
-                                                      CircularProgressIndicator(
-                                                    value: loadingProgress
-                                                                .expectedTotalBytes !=
-                                                            null
-                                                        ? loadingProgress
-                                                                .cumulativeBytesLoaded /
-                                                            loadingProgress
-                                                                .expectedTotalBytes!
-                                                        : null,
-                                                  ),
+                                                      CircularProgressIndicator( ),
                                                 );
                                               },
                                             )),
@@ -209,34 +200,32 @@ class _BooksListState extends State<BooksList> {
                                               Text('الرف       : ${documentSnapshot['raf'].toString()}'))
                                         ],
                                       ),
-                                      SizedBox(
-                                          height: 150,
-                                          width: 150,
-                                          child: Image.network(
-                                            documentSnapshot['image'],
-                                            loadingBuilder:
-                                                (BuildContext context,
-                                                Widget child,
-                                                ImageChunkEvent?
-                                                loadingProgress) {
-                                              if (loadingProgress == null) {
-                                                return child;
-                                              }
-                                              return Center(
-                                                child:
-                                                CircularProgressIndicator(
-                                                  value: loadingProgress
-                                                      .expectedTotalBytes !=
-                                                      null
-                                                      ? loadingProgress
-                                                      .cumulativeBytesLoaded /
-                                                      loadingProgress
-                                                          .expectedTotalBytes!
-                                                      : null,
-                                                ),
-                                              );
-                                            },
-                                          )),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 8.0),
+                                        child: SizedBox(
+                                            height: 150,
+                                            width: 150,
+                                            child: Image.network(
+                                              documentSnapshot['image'],
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                  Widget child,
+                                                  ImageChunkEvent?
+                                                  loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Center(
+                                                  child: CircularProgressIndicator(
+                                                    value: loadingProgress.expectedTotalBytes != null
+                                                        ? loadingProgress.cumulativeBytesLoaded /
+                                                        loadingProgress.expectedTotalBytes!
+                                                        : null,
+                                                  ),
+                                                );
+                                              },
+                                            )),
+                                      ),
                                     ],
                                   ),
                                 ),

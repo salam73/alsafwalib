@@ -1,5 +1,4 @@
 import 'package:alsafwalib/Constant/constant.dart';
-import 'package:alsafwalib/screens/level_one/math_level_one.dart';
 import 'package:flutter/material.dart';
 
 class BooksLevelOne extends StatelessWidget {
@@ -9,7 +8,7 @@ class BooksLevelOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('المرحلة الاولى'),
+        title: const Text('المرحلة الاولى'),
       ),
       body: Center(
         child: Row(
@@ -18,12 +17,24 @@ class BooksLevelOne extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                nameWidget(name:'اسس الهندسة الكهربائية' , path: 'https://drive.google.com/drive/folders/18FnjMoWb_WreqA6hXCJBDnj0mbTmML6A'),
-                nameWidget(name:'الرسم الهندسي' , path: 'https://drive.google.com/drive/folders/1QvYNSmhYTnRZ2fEM9ytJHWKlXTiFClgl'),
-                nameWidget(name:'الكترونيك رقمي' , path: 'https://drive.google.com/drive/folders/1aE-4KPo9xEq_5m3ZPpx0qs1Hfll-I4Nw'),
-                nameWidget(name:'اللغة الانكليزية' , path: 'https://drive.google.com/drive/folders/14zWim84JNUA40Cx8afS544xv0yx1b5vS'),
+                nameWidget(
+                    name: 'اسس الهندسة الكهربائية',
+                    path:
+                        'https://drive.google.com/drive/folders/18FnjMoWb_WreqA6hXCJBDnj0mbTmML6A'),
+                nameWidget(
+                    name: 'الرسم الهندسي',
+                    path:
+                        'https://drive.google.com/drive/folders/1QvYNSmhYTnRZ2fEM9ytJHWKlXTiFClgl'),
+                nameWidget(
+                    name: 'الكترونيك رقمي',
+                    path:
+                        'https://drive.google.com/drive/folders/1aE-4KPo9xEq_5m3ZPpx0qs1Hfll-I4Nw'),
+                nameWidget(
+                    name: 'اللغة الانكليزية',
+                    path:
+                        'https://drive.google.com/drive/folders/14zWim84JNUA40Cx8afS544xv0yx1b5vS'),
 
-               /*
+                /*
                Card(
                   color: Constant().classLibraryColor,
                   child: SizedBox(
@@ -59,13 +70,24 @@ class BooksLevelOne extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                nameWidget(
+                    name: 'برمجة ',
+                    path:
+                        'https://drive.google.com/drive/folders/1TpeaPat6b0knu-Cug0dKJlInFjjUqwQ9'),
+                nameWidget(
+                    name: 'تركيب الحاسوب',
+                    path:
+                        'https://drive.google.com/drive/folders/1jbX4ZCedKWuLfR5Jv3jT5wuVd3B1JmFx'),
+                nameWidget(
+                    name: 'حقوق الانسان',
+                    path:
+                        'https://drive.google.com/drive/folders/1Zwh1OphrMcFKUrGT0AFe4uA3uf4EiaSo'),
+                nameWidget(
+                    name: 'رياضيات',
+                    path:
+                        'https://drive.google.com/drive/folders/1AHlTC-Zo5zjFA-ZS4ZITEdVY-jf5_BjF'),
 
-                nameWidget(name:'برمجة ' , path: 'https://drive.google.com/drive/folders/1TpeaPat6b0knu-Cug0dKJlInFjjUqwQ9'),
-                nameWidget(name:'تركيب الحاسوب' , path: 'https://drive.google.com/drive/folders/1jbX4ZCedKWuLfR5Jv3jT5wuVd3B1JmFx'),
-                nameWidget(name:'حقوق الانسان' , path: 'https://drive.google.com/drive/folders/1Zwh1OphrMcFKUrGT0AFe4uA3uf4EiaSo'),
-                nameWidget(name:'رياضيات' , path: 'https://drive.google.com/drive/folders/1AHlTC-Zo5zjFA-ZS4ZITEdVY-jf5_BjF'),
-
-             /*
+                /*
                Card(
                   color: Constant().classLibraryColor,
                   child: SizedBox(
@@ -114,11 +136,9 @@ class BooksLevelOne extends StatelessWidget {
     );
   }
 
-  nameWidget({String? name,String? path}){
+  nameWidget({String? name, String? path}) {
     return InkWell(
-      onTap: () => Constant().myLaunchUrl(
-          path!),
-
+      onTap: () => Constant().myLaunchUrl(path!),
       child: Card(
         color: Constant().classLibraryColor,
         child: SizedBox(

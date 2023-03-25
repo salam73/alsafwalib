@@ -15,21 +15,21 @@ class _AdminPageState extends State<AdminPage> {
   String? user;
   String? password;
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('AdminPage'),),
+      appBar: AppBar(
+        title: const Text('AdminPage'),
+      ),
       body: Form(
         key: _formKey,
         child: Column(
           children: [
             TextFormField(
-              decoration: InputDecoration(labelText: 'Username'),
-              onChanged: (value){
+              decoration: const InputDecoration(labelText: 'Username'),
+              onChanged: (value) {
                 setState(() {
-                  user=value;
+                  user = value;
                 });
               },
               validator: (value) {
@@ -40,21 +40,18 @@ class _AdminPageState extends State<AdminPage> {
                 return null;
               },
             ),
-
             TextFormField(
               obscureText: true,
-              decoration: InputDecoration(labelText: 'Password'),
-              onChanged: (value){
+              decoration: const InputDecoration(labelText: 'Password'),
+              onChanged: (value) {
                 setState(() {
-                  password=value;
+                  password = value;
                 });
               },
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Please enter a password';
-
                 }
-
 
                 return null;
               },
@@ -62,16 +59,15 @@ class _AdminPageState extends State<AdminPage> {
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  if(password=='1234') {
+                  if (password == '1234') {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const AddBooks()));
                   }
-                  }
-
+                }
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),

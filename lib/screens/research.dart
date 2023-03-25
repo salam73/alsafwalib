@@ -7,18 +7,19 @@ class Research extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('بحوث التخرج'),),
+      appBar: AppBar(
+        title: const Text('بحوث التخرج'),
+      ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-              children:  [
+              children: [
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -28,7 +29,7 @@ class Research extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -38,7 +39,7 @@ class Research extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -48,7 +49,7 @@ class Research extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -60,11 +61,10 @@ class Research extends StatelessWidget {
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-              children:  [
+              children: [
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -74,7 +74,7 @@ class Research extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -84,7 +84,7 @@ class Research extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(
@@ -94,7 +94,7 @@ class Research extends StatelessWidget {
                 ),
                 Card(
                   color: Constant().researchBooksColor,
-                  child: SizedBox(
+                  child: const SizedBox(
                     width: 150,
                     height: 60,
                     child: Center(

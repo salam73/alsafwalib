@@ -19,6 +19,8 @@ import '../Constant/constant.dart';
 import '../model/book_model.dart' as book;
 
 class NotionApi extends StatefulWidget {
+  const NotionApi({super.key});
+
   @override
   State<NotionApi> createState() => _NotionApiState();
 }
@@ -49,14 +51,13 @@ class _NotionApiState extends State<NotionApi> {
   }
 
   getItems2() async {
-
     // List<Item> myItems = [];
     try {
       final response = await http.post(
         Uri.parse(
             'https://api.notion.com/v1/databases/96aaa9ca8b5c4532abc2142883d3ebda/query'
-          //  'https://api.notion.com/v1/databases/551c9eaa0dcb4e4e98a914dc4165e99e/query'
-        ),
+            //  'https://api.notion.com/v1/databases/551c9eaa0dcb4e4e98a914dc4165e99e/query'
+            ),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -80,23 +81,27 @@ class _NotionApiState extends State<NotionApi> {
 
         iterableBooksList = dynamicMyData.map((e) => e);
         //  print(data['results']);
-int numb=0;
+        int numb = 0;
 
-final CollectionReference books=FirebaseFirestore.instance.collection('books');
+        final CollectionReference books =
+            FirebaseFirestore.instance.collection('books');
 
         for (Item v in iterableBooksList.toList().reversed) {
           numb++;
-         print(v.name);
-         print('الاقسام :${v.category}');
-         print('تسلسل: ${v.tasalsel}');
-         print('الرف :${v.raf}');
-         print('الرف :${v.image}');
-         print('الرف :${v.available}');
+          if (kDebugMode) {
+            print(v.name);
+            print('الاقسام :${v.category}');
 
+            print('تسلسل: ${v.tasalsel}');
 
-         DatabaseReference ref = FirebaseDatabase.instance.ref("books");
+            print('الرف :${v.raf}');
+            print('الرف :${v.image}');
+            print('الرف :${v.available}');
+          }
 
-        /* await ref.set({
+          DatabaseReference ref = FirebaseDatabase.instance.ref("books");
+
+          /* await ref.set({
            "name": v.name,
            "category": v.category,
            "sequence": v.tasalsel,
@@ -106,20 +111,17 @@ final CollectionReference books=FirebaseFirestore.instance.collection('books');
 
          });*/
           books.add({
-            "name":v.name,
-            "الأقسام":v.category,
+            "name": v.name,
+            "الأقسام": v.category,
             "sequence": v.tasalsel,
             "raf": v.raf,
             "image": v.image,
             "available": v.available,
           });
-
         }
-
       }
       return iterableBooksList.where((element) => element.category == level);
     } catch (e) {
-
       print('error $e');
     }
     print('hello');
@@ -161,18 +163,24 @@ final CollectionReference books=FirebaseFirestore.instance.collection('books');
 /**/
 
         iterableBooksList = dynamicMyData.map((e) => e);
-        print(data['results']);
-        print('f');
+        if (kDebugMode) {
+          print(data['results']);
+          print('f');
+        }
       }
       return iterableBooksList.where((element) => element.category == level);
     } catch (e) {
-      print('error $e');
+      if (kDebugMode) {
+        print('error $e');
+      }
     }
     return [];
   }
 
   updateData(String pageId, bool available) async {
-    print('please wait');
+    if (kDebugMode) {
+      print('please wait');
+    }
 
     var json = """{
       "properties": {
@@ -206,7 +214,9 @@ final CollectionReference books=FirebaseFirestore.instance.collection('books');
           .then(
         (value) {
           //  print(value.body);
-          print('done wait');
+          if (kDebugMode) {
+            print('done wait');
+          }
         },
       ).whenComplete(() => print('complete'));
       setState(() {
@@ -214,28 +224,24 @@ final CollectionReference books=FirebaseFirestore.instance.collection('books');
         loadingData = false;
         // level = 'المرحلة الاولى';
       });
-      ;
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 
-  getDataRealTime(){
+  getDataRealTime() {
     DatabaseReference ref = FirebaseDatabase.instance.ref("books/تخدير");
 
     ref.onValue.listen((event) {
-
-
-      Map book=event.snapshot.value as Map;
+      Map book = event.snapshot.value as Map;
 
       if (kDebugMode) {
         print(book);
       }
-      setState(() {
-
-      });
+      setState(() {});
     });
-
   }
 
   /* "id":"Fj%3F%5E",
@@ -248,14 +254,14 @@ final CollectionReference books=FirebaseFirestore.instance.collection('books');
     super.initState();
     level = 'المرحلة الرابعة';
     getItems2();
-   // getDataRealTime();
+    // getDataRealTime();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('api'),
+        title: const Text('api'),
       ),
       body: FutureBuilder<Iterable>(
         future: getItems(level),
@@ -275,7 +281,9 @@ final CollectionReference books=FirebaseFirestore.instance.collection('books');
                         InkWell(
                           onTap: () {
                             updateData(g.pageID, g.available);
-                            print(g.pageID);
+                            if (kDebugMode) {
+                              print(g.pageID);
+                            }
                             setState(() {
                               loadingData = true;
                             });
