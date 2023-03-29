@@ -44,7 +44,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    /*apiKey: 'AIzaSyCsLjjiVtrNztAojGjGPe2hQlWIisud8r4',
+      /*apiKey: 'AIzaSyCsLjjiVtrNztAojGjGPe2hQlWIisud8r4',
     appId: '1:882135383969:web:0b4e9c93fe87477e6495e0',
     messagingSenderId: '882135383969',
     projectId: 'iraq-yellow-pages',
@@ -63,8 +63,7 @@ class DefaultFirebaseOptions {
       appId: "1:882135383969:web:85193d17d38c21d56495e0",
       measurementId: "G-N0GDKKMDGN"
 
-
-     /* apiKey: "AIzaSyDp7pksy1VtC383QNrLBXM4p2vTO0a14O8",
+      /* apiKey: "AIzaSyDp7pksy1VtC383QNrLBXM4p2vTO0a14O8",
       authDomain: "almerro-be66e.firebaseapp.com",
       databaseURL: 'almerro-be66e.firebaseapp.firebaseio.com',
       projectId: "almerro-be66e",
@@ -72,7 +71,7 @@ class DefaultFirebaseOptions {
       messagingSenderId: "498327141371",
       appId: "1:498327141371:web:fa3b124d0017fa317fe95e",
       measurementId: "G-9J2SV9S7YQ"*/
-  );
+      );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD7ODbc1-ob0ssnZxmEfR3x9KBX-rKrKeE',
@@ -90,8 +89,10 @@ class DefaultFirebaseOptions {
     projectId: 'iraq-yellow-pages',
     databaseURL: 'https://iraq-yellow-pages.firebaseio.com',
     storageBucket: 'iraq-yellow-pages.appspot.com',
-    androidClientId: '882135383969-b2e4gfr24mpmqmrqft1bnk95h6bpgq6t.apps.googleusercontent.com',
-    iosClientId: '882135383969-gi5abeho270f1c8pcj5ttd3dcqtlfs6g.apps.googleusercontent.com',
+    androidClientId:
+        '882135383969-b2e4gfr24mpmqmrqft1bnk95h6bpgq6t.apps.googleusercontent.com',
+    iosClientId:
+        '882135383969-gi5abeho270f1c8pcj5ttd3dcqtlfs6g.apps.googleusercontent.com',
     iosBundleId: 'com.alsafwa.lib.alsafwalib',
   );
 
@@ -102,8 +103,10 @@ class DefaultFirebaseOptions {
     projectId: 'iraq-yellow-pages',
     databaseURL: 'https://iraq-yellow-pages.firebaseio.com',
     storageBucket: 'iraq-yellow-pages.appspot.com',
-    androidClientId: '882135383969-b2e4gfr24mpmqmrqft1bnk95h6bpgq6t.apps.googleusercontent.com',
-    iosClientId: '882135383969-gi5abeho270f1c8pcj5ttd3dcqtlfs6g.apps.googleusercontent.com',
+    androidClientId:
+        '882135383969-b2e4gfr24mpmqmrqft1bnk95h6bpgq6t.apps.googleusercontent.com',
+    iosClientId:
+        '882135383969-gi5abeho270f1c8pcj5ttd3dcqtlfs6g.apps.googleusercontent.com',
     iosBundleId: 'com.alsafwa.lib.alsafwalib',
   );
 }
