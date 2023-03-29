@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "882135383969",
+    "firebase_url": "https://iraq-yellow-pages.firebaseio.com",
+    "project_id": "iraq-yellow-pages",
+    "storage_bucket": "iraq-yellow-pages.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882135383969:android:c1f985644bebf88f6495e0",
+        "android_client_info": {
+          "package_name": "com.alsafwa.lib.alsafwalib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882135383969-ktogih39l3dtjduois94k78qqo34lr2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ODbc1-ob0ssnZxmEfR3x9KBX-rKrKeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882135383969-ktogih39l3dtjduois94k78qqo34lr2v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "882135383969-56onqjnl8q0c7jbojo55u837s30rfvbn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dk.salam.flutteriraqyp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882135383969:android:9da7f0d32f8185466495e0",
+        "android_client_info": {
+          "package_name": "com.hfhadi.smart_wallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882135383969-ktogih39l3dtjduois94k78qqo34lr2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ODbc1-ob0ssnZxmEfR3x9KBX-rKrKeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882135383969-ktogih39l3dtjduois94k78qqo34lr2v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "882135383969-56onqjnl8q0c7jbojo55u837s30rfvbn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dk.salam.flutteriraqyp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882135383969:android:018cd9e7de4966966495e0",
+        "android_client_info": {
+          "package_name": "dk.salam.flutteriraqyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882135383969-b2e4gfr24mpmqmrqft1bnk95h6bpgq6t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dk.salam.flutteriraqyp",
+            "certificate_hash": "5fada7b428fece7cedfcc22dfef442657209342c"
+          }
+        },
+        {
+          "client_id": "882135383969-ktogih39l3dtjduois94k78qqo34lr2v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7ODbc1-ob0ssnZxmEfR3x9KBX-rKrKeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882135383969-ktogih39l3dtjduois94k78qqo34lr2v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "882135383969-56onqjnl8q0c7jbojo55u837s30rfvbn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dk.salam.flutteriraqyp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

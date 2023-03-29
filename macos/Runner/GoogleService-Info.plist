@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>882135383969-gi5abeho270f1c8pcj5ttd3dcqtlfs6g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.882135383969-gi5abeho270f1c8pcj5ttd3dcqtlfs6g</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>882135383969-b2e4gfr24mpmqmrqft1bnk95h6bpgq6t.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAR5xoIKSsjxu2GqaHnnKVCXds1HKa4jak</string>
+	<key>GCM_SENDER_ID</key>
+	<string>882135383969</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alsafwa.lib.alsafwalib</string>
+	<key>PROJECT_ID</key>
+	<string>iraq-yellow-pages</string>
+	<key>STORAGE_BUCKET</key>
+	<string>iraq-yellow-pages.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:882135383969:ios:2aa224a273a5c9986495e0</string>
+	<key>DATABASE_URL</key>
+	<string>https://iraq-yellow-pages.firebaseio.com</string>
+</dict>
+</plist>

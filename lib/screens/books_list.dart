@@ -51,201 +51,169 @@ class _BooksListState extends State<BooksList> {
       ),
       body: Directionality(
         textDirection: TextDirection.rtl,
-        child: Column(
-          children: [
-          /*  SizedBox(
-              height: 50,
-              child: Center(
-                  child: Container(
-                child: Text('إستعارة الكتب'),
-              )),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                SizedBox(width: 180, child: Text('إستعارة الكتب')),
-                SizedBox(
-                  width: 90,
-                  child: Text('الأقسام'),
-                ),
-                SizedBox(width: 40, child: Text('تسلسل')),
-                SizedBox(
-                  width: 30,
-                  child: Text('الرف'),
-                ),
-                SizedBox(
-                  width: 100,
-                  // child: Text('صورة'),
-                )
-              ],
-            ),*/
-            StreamBuilder(
-                stream: getStream().snapshots(),
-                builder:
-                    (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-                  if (streamSnapshot.hasData) {
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: streamSnapshot.data!.docs.length,
-                        itemBuilder: (context, index) {
-                          final DocumentSnapshot documentSnapshot =
-                              streamSnapshot.data!.docs[index];
-                          //   print(documentSnapshot['image']);
-                          return
-                            Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Card(
-                                elevation: 3,
-                                color: documentSnapshot['available']
-                                    ? const Color(0xffb0f0a1)
-                                    : const Color(0xfff7b19c),
-                                child: documentSnapshot['available']
-                                    ?
-                                    InkWell(
-                                  onTap: () async {
-                                    showCupertinoModalPopup(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return SizedBox(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height /
-                                                  1.2,
-                                              child: formWidget(
-                                                  documentSnapshot.id,
-                                                  documentSnapshot['available'],
-                                                  documentSnapshot['name']));
-                                        });
-
-
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisAlignment:
-
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          //mainAxisAlignment: MainAxisAlignment.end,
-
-                                          children: [
-                                            SizedBox(
-                                              width:250,
-                                              child: Text(
-                                                  'الإسم : ${documentSnapshot['name']}'),
-                                            ),
-                                            /*  SizedBox(
-
-                                              child: Text('القسم : ${documentSnapshot['الأقسام']}'),
-                                            ),*/
-                                            SizedBox(
-                                                child: Text('التسلسل : ${documentSnapshot['sequence'].toString()}')),
-                                            SizedBox(
-                                                child:
-                                                    Text('الرف       : ${documentSnapshot['raf'].toString()}'))
-                                          ],
-                                        ),
-                                        SizedBox(
-                                            height: 150,
-                                            width: 150,
-                                            child: Image.network(
-                                              documentSnapshot['image'],
-                                              loadingBuilder:
-                                                  (BuildContext context,
-                                                      Widget child,
-                                                      ImageChunkEvent?
-                                                          loadingProgress) {
-                                                if (loadingProgress == null) {
-                                                  return child;
-                                                }
-                                                return const Center(
-                                                  child:
-                                                      CircularProgressIndicator( ),
-                                                );
-                                              },
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ):
-                                Padding(
+        child: StreamBuilder(
+            stream: getStream().snapshots(),
+            builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+              if (streamSnapshot.hasData) {
+                return ListView.builder(
+                  itemCount: streamSnapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    final DocumentSnapshot documentSnapshot =
+                        streamSnapshot.data!.docs[index];
+                    //   print(documentSnapshot['image']);
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Card(
+                        elevation: 3,
+                        color: documentSnapshot['available']
+                            ? const Color(0xffb0f0a1)
+                            : const Color(0xfff7b19c),
+                        child: documentSnapshot['available']
+                            ? InkWell(
+                                onTap: () async {
+                                  showCupertinoModalPopup(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                1.2,
+                                            child: formWidget(
+                                                documentSnapshot.id,
+                                                documentSnapshot['available'],
+                                                documentSnapshot['name']));
+                                      });
+                                },
+                                child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     mainAxisAlignment:
-
-                                    MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Column(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         //mainAxisAlignment: MainAxisAlignment.end,
 
                                         children: [
                                           SizedBox(
-                                            width:250,
+                                            width: 250,
                                             child: Text(
                                                 'الإسم : ${documentSnapshot['name']}'),
                                           ),
                                           /*  SizedBox(
-
-                                              child: Text('القسم : ${documentSnapshot['الأقسام']}'),
-                                            ),*/
+        
+                                        child: Text('القسم : ${documentSnapshot['الأقسام']}'),
+                                      ),*/
                                           SizedBox(
-                                              child: Text('التسلسل : ${documentSnapshot['sequence'].toString()}')),
+                                              child: Text(
+                                                  'التسلسل : ${documentSnapshot['sequence'].toString()}')),
                                           SizedBox(
-                                              child:
-                                              Text('الرف       : ${documentSnapshot['raf'].toString()}'))
+                                              child: Text(
+                                                  'الرف       : ${documentSnapshot['raf'].toString()}'))
                                         ],
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 8.0),
-                                        child: SizedBox(
-                                            height: 150,
-                                            width: 150,
-                                            child: Image.network(
-                                              documentSnapshot['image'],
-                                              loadingBuilder:
-                                                  (BuildContext context,
-                                                  Widget child,
-                                                  ImageChunkEvent?
+                                      SizedBox(
+                                        height: 150,
+                                        width: 150,
+                                        child: Image.network(
+                                          documentSnapshot['image'],
+                                          loadingBuilder: (BuildContext context,
+                                              Widget child,
+                                              ImageChunkEvent?
                                                   loadingProgress) {
-                                                if (loadingProgress == null) {
-                                                  return child;
-                                                }
-                                                return Center(
-                                                  child: CircularProgressIndicator(
-                                                    value: loadingProgress.expectedTotalBytes != null
-                                                        ? loadingProgress.cumulativeBytesLoaded /
-                                                        loadingProgress.expectedTotalBytes!
-                                                        : null,
-                                                  ),
-                                                );
-                                              },
-                                            )),
+                                            if (loadingProgress == null) {
+                                              return child;
+                                            }
+                                            return const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                            ),
-                          );
-                        },
+                              )
+                            : Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      //mainAxisAlignment: MainAxisAlignment.end,
+
+                                      children: [
+                                        SizedBox(
+                                          width: 250,
+                                          child: Text(
+                                              'الإسم : ${documentSnapshot['name']}'),
+                                        ),
+                                        /*  SizedBox(
+        
+                                        child: Text('القسم : ${documentSnapshot['الأقسام']}'),
+                                      ),*/
+                                        SizedBox(
+                                            child: Text(
+                                                'التسلسل : ${documentSnapshot['sequence'].toString()}')),
+                                        SizedBox(
+                                            child: Text(
+                                                'الرف       : ${documentSnapshot['raf'].toString()}'))
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: SizedBox(
+                                          height: 150,
+                                          width: 150,
+                                          child: Image.network(
+                                            documentSnapshot['image'],
+                                            loadingBuilder:
+                                                (BuildContext context,
+                                                    Widget child,
+                                                    ImageChunkEvent?
+                                                        loadingProgress) {
+                                              if (loadingProgress == null) {
+                                                return child;
+                                              }
+                                              return Center(
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  value: loadingProgress
+                                                              .expectedTotalBytes !=
+                                                          null
+                                                      ? loadingProgress
+                                                              .cumulativeBytesLoaded /
+                                                          loadingProgress
+                                                              .expectedTotalBytes!
+                                                      : null,
+                                                ),
+                                              );
+                                            },
+                                          )),
+                                    ),
+                                  ],
+                                ),
+                              ),
                       ),
                     );
-                  }
-                  return Center(
-                    child: Column(
-                      children: const [
-                        CircularProgressIndicator(),
-                        Text('please wait ...')
-                      ],
-                    ),
-                  );
-                }),
-          ],
-        ),
+                  },
+                );
+              }
+              return Center(
+                child: Column(
+                  children: const [
+                    CircularProgressIndicator(),
+                    Text('please wait ...')
+                  ],
+                ),
+              );
+            }),
       ),
     );
   }
@@ -370,7 +338,7 @@ class _BooksListState extends State<BooksList> {
                       }
                     }
                   },
-                  child: Text('استعارة'),
+                  child: const Text('استعارة'),
                 ),
               ],
             ),

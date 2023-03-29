@@ -1,4 +1,5 @@
 import 'package:alsafwalib/screens/user_page.dart';
+import 'package:alsafwalib/views/add_books.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -31,10 +32,10 @@ class MyApp extends StatelessWidget {
 
             // MainPage()
             //   NotionApi(),
-            const UserPage()
-        // Books()
-        // AdminPage()
-        //AddBooks()
+            //  const UserPage()
+            // Books()
+            // AdminPage()
+            const AddBooks()
         //  ExamplePage()
         );
   }

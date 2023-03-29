@@ -376,22 +376,43 @@ class _AddBooksState extends State<AddBooks> {
                   subtitle:
                       getUserName(context, streamSnapshot, documentSnapshot.id),
                   children: [
-                    ElevatedButton(
-                        onPressed: () async {
-                          final myDoc = FirebaseFirestore.instance
-                              .doc("books/${documentSnapshot.id}");
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () async {
+                            final myDoc = FirebaseFirestore.instance
+                                .doc("books/${documentSnapshot.id}");
 
-                          try {
-                            await myDoc.update({
-                              "available": !documentSnapshot['available'],
-                            });
-                          } catch (e) {
-                            if (kDebugMode) {
-                              print(e);
+                            try {
+                              await myDoc.update({
+                                "available": !documentSnapshot['available'],
+                              });
+                            } catch (e) {
+                              if (kDebugMode) {
+                                print(e);
+                              }
                             }
-                          }
-                        },
-                        child: const Text('update')),
+                          },
+                          child: const Text('update'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () async {
+                            final myDoc = FirebaseFirestore.instance
+                                .doc("books/${documentSnapshot.id}");
+
+                            try {
+                              await myDoc.delete();
+                            } catch (e) {
+                              if (kDebugMode) {
+                                print(e);
+                              }
+                            }
+                          },
+                          child: const Text('delete'),
+                        ),
+                      ],
+                    ),
                     // getUserName(context, streamSnapshot, documentSnapshot.id),
                     //Text('asd')
                   ],
