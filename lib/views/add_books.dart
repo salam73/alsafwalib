@@ -169,8 +169,8 @@ class _AddBooksState extends State<AddBooks> {
                   title: const Text('رفع الكتاب'),
                   bottom: const TabBar(
                     tabs: [
-                      Tab(icon: Icon(Icons.book)),
-                      Tab(icon: Icon(Icons.label_important)),
+                      Text('رفع الكتاب'),
+                      Text('قائمة الكتب'),
                     ],
                   ),
                 ),
