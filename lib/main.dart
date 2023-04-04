@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.amber,
         ),
+
         home:
             // PickUpScreen()
             // FirebaseScreen(part: 'تحليلات',)
