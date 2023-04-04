@@ -17,6 +17,7 @@ class AddBooks extends StatefulWidget {
 
 class _AddBooksState extends State<AddBooks> {
   final ref = FirebaseFirestore.instance.collection("books").doc();
+  final research = FirebaseFirestore.instance.collection("books2").doc();
   final books =
       FirebaseFirestore.instance.collection('books').orderBy('الأقسام');
 
@@ -56,8 +57,6 @@ class _AddBooksState extends State<AddBooks> {
       final reader = ht.FileReader();
       reader.readAsDataUrl(file);
       reader.onLoadEnd.listen((event) async {
-        var snapshot2 =
-            await fs.ref().child('images/${file.name}').putString(file.name);
         var snapshot =
             await fs.ref().child('images/${file.name}').putBlob(file);
         String downloadUrl = await snapshot.ref.getDownloadURL();
@@ -94,11 +93,8 @@ class _AddBooksState extends State<AddBooks> {
     }
   }
 
-  Widget getUserName(
-    BuildContext context,
-    AsyncSnapshot<QuerySnapshot> streamSnapshot,
-    String id,
-  ) {
+  Widget getUserName(BuildContext context,
+      AsyncSnapshot<QuerySnapshot> streamSnapshot, String id) {
     final users = FirebaseFirestore.instance
         .collection('books/$id/users')
         .orderBy('time', descending: true);
@@ -107,21 +103,55 @@ class _AddBooksState extends State<AddBooks> {
         stream: users.snapshots(),
         builder: (context, streamSnapshot) {
           if (streamSnapshot.hasData) {
-            return SizedBox(
-              height: 40,
-              child: ListView.builder(
-                  itemCount: streamSnapshot.data!.docs.length,
-                  itemBuilder: (context, index) {
-                    final DocumentSnapshot documentSnapshot =
-                        streamSnapshot.data!.docs[index];
-                    return Row(
-                      children: [
-                        Text('${documentSnapshot['name']} , '),
-                        Text(documentSnapshot['collage']),
-                        // Text(documentSnapshot['time'].toString()),
-                      ],
-                    );
-                  }),
+            return Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: streamSnapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        final DocumentSnapshot documentSnapshot =
+                            streamSnapshot.data!.docs[index];
+                        return Wrap(
+                          children: [
+                            Text('${documentSnapshot['name']} , '),
+                            Text('${documentSnapshot['collage']} , '),
+                            Text(documentSnapshot['idNumber'].toString()),
+                            // Text(documentSnapshot.id),
+                            const Divider()
+                          ],
+                        );
+                      }),
+                ),
+                streamSnapshot.data!.docs.isNotEmpty
+                    ? ElevatedButton(
+                        onPressed: () {
+                          // Navigator.pop(context);
+                          showAlertDialog(context, id, ''.toString(),
+                              collection: true);
+                        }
+
+                        /* try {
+                        {
+                          var snapshots = await users.get();
+                          for (var doc in snapshots.docs) {
+                            await doc.reference.delete();
+                          }
+                        }
+                      } catch (e) {
+                        if (kDebugMode) {
+                          print(e);
+                        }
+                      }*/
+                        ,
+                        child: Text('Clear'),
+                      )
+                    : ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text('Close'),
+                      )
+              ],
             );
           }
           return const Text('loading');
@@ -166,11 +196,29 @@ class _AddBooksState extends State<AddBooks> {
               length: 2,
               child: Scaffold(
                 appBar: AppBar(
-                  title: const Text('رفع الكتاب'),
+                  backgroundColor: const Color(0xff893422),
+                  elevation: 0,
+                  iconTheme: const IconThemeData(
+                    color: Colors.white, //change your color here
+                  ),
+                  // leading: Image.asset('assets/safwa.jpg'),
+                  title: const Text(
+                    'رفع الكتاب',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  actions: [Image.asset('assets/safwa.jpg')],
+
                   bottom: const TabBar(
+                    labelColor: Colors.white,
                     tabs: [
-                      Text('رفع الكتاب'),
-                      Text('قائمة الكتب'),
+                      SizedBox(
+                        height: 30,
+                        child: Text('رفع الكتاب'),
+                      ),
+                      SizedBox(
+                        height: 30,
+                        child: Text('قائمة الكتب'),
+                      ),
                     ],
                   ),
                 ),
@@ -291,8 +339,8 @@ class _AddBooksState extends State<AddBooks> {
                 },
               ),
               ElevatedButton(
-                child: const Text('خزن الكتاب'),
                 onPressed: uploadToFireBase,
+                child: const Text('خزن الكتاب'),
               ),
               Text(done)
             ],
@@ -314,108 +362,141 @@ class _AddBooksState extends State<AddBooks> {
                     streamSnapshot.data!.docs[index];
 
                 //   print(documentSnapshot['image']);
-                return ExpansionTile(
-                  title: Card(
-                    elevation: 3,
-                    color: documentSnapshot['available']
-                        ? const Color(0xffb0f0a1)
-                        : const Color(0xfff7b19c),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            //mainAxisAlignment: MainAxisAlignment.end,
 
+                return Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    /*  subtitle:
+                        getUserName(context, streamSnapshot, documentSnapshot.id),*/
+                    children: [
+                      Card(
+                        elevation: 3,
+                        color: documentSnapshot['available']
+                            ? const Color(0xffdec99e)
+                            : const Color(0xfff7b19c),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               SizedBox(
-                                width: 250,
-                                child:
-                                    Text('الإسم : ${documentSnapshot['name']}'),
-                              ),
-                              SizedBox(
-                                  child: Text(
-                                      'التسلسل : ${documentSnapshot['sequence'].toString()}')),
-                              SizedBox(
-                                  child: Text(
-                                      'الرف       : ${documentSnapshot['raf'].toString()}')),
-                              Text(documentSnapshot.id)
-                            ],
-                          ),
-                          SizedBox(
-                              height: 150,
-                              width: 150,
-                              child: Image.network(
-                                documentSnapshot['image'],
-                                loadingBuilder: (BuildContext context,
-                                    Widget child,
-                                    ImageChunkEvent? loadingProgress) {
-                                  if (loadingProgress == null) {
-                                    return child;
-                                  }
-                                  return Center(
-                                    child: CircularProgressIndicator(
-                                      value:
-                                          loadingProgress.expectedTotalBytes !=
+                                  width: 100,
+                                  child: Image.network(
+                                    documentSnapshot['image'],
+                                    loadingBuilder: (BuildContext context,
+                                        Widget child,
+                                        ImageChunkEvent? loadingProgress) {
+                                      if (loadingProgress == null) {
+                                        return child;
+                                      }
+                                      return Center(
+                                        child: CircularProgressIndicator(
+                                          value: loadingProgress
+                                                      .expectedTotalBytes !=
                                                   null
                                               ? loadingProgress
                                                       .cumulativeBytesLoaded /
                                                   loadingProgress
                                                       .expectedTotalBytes!
                                               : null,
-                                    ),
-                                  );
-                                },
-                              )),
+                                        ),
+                                      );
+                                    },
+                                  )),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                //mainAxisAlignment: MainAxisAlignment.end,
+
+                                children: [
+                                  SizedBox(
+                                    width: 250,
+                                    child: Text(
+                                        'الإسم      : ${documentSnapshot['name']}'),
+                                  ),
+                                  SizedBox(
+                                      child: Text(
+                                          'القسم      : ${documentSnapshot['الأقسام'].toString()}')),
+                                  SizedBox(
+                                      child: Text(
+                                          'التسلسل : ${documentSnapshot['sequence'].toString()}')),
+                                  SizedBox(
+                                      child: Text(
+                                          'الرف       : ${documentSnapshot['raf'].toString()}')),
+                                  //   Text(documentSnapshot.id)
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () async {
+                              final myDoc = FirebaseFirestore.instance
+                                  .doc("books/${documentSnapshot.id}");
+
+                              try {
+                                await myDoc.update({
+                                  "available": !documentSnapshot['available'],
+                                });
+                              } catch (e) {
+                                if (kDebugMode) {
+                                  print(e);
+                                }
+                              }
+                            },
+                            child: const Text('تعديل'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              showAlertDialog(
+                                  context,
+                                  "books/${documentSnapshot.id}",
+                                  documentSnapshot['name']);
+                              /*final myDoc = FirebaseFirestore.instance
+                                  .doc("books/${documentSnapshot.id}");
+
+                              try {
+                                await myDoc.delete();
+                              } catch (e) {
+                                if (kDebugMode) {
+                                  print(e);
+                                }
+                              }*/
+                            },
+                            child: const Text('مسح الكتاب'),
+                          ),
+                          streamSnapshot.data!.docs.length > 1
+                              ? ElevatedButton(
+                                  onPressed: () async {
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => Directionality(
+                                              textDirection: TextDirection.rtl,
+                                              child: AlertDialog(
+                                                title: Text(
+                                                    documentSnapshot['name']),
+                                                content: SizedBox(
+                                                    width: 300,
+                                                    child: getUserName(
+                                                        context,
+                                                        streamSnapshot,
+                                                        documentSnapshot.id)),
+                                              ),
+                                            ));
+                                  },
+                                  child: const Text('قائمة الاسماء'),
+                                )
+                              : Text(
+                                  streamSnapshot.data!.docs.length.toString())
                         ],
                       ),
-                    ),
+                      // getUserName(context, streamSnapshot, documentSnapshot.id),
+                      //Text('asd')
+                    ],
                   ),
-                  subtitle:
-                      getUserName(context, streamSnapshot, documentSnapshot.id),
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () async {
-                            final myDoc = FirebaseFirestore.instance
-                                .doc("books/${documentSnapshot.id}");
-
-                            try {
-                              await myDoc.update({
-                                "available": !documentSnapshot['available'],
-                              });
-                            } catch (e) {
-                              if (kDebugMode) {
-                                print(e);
-                              }
-                            }
-                          },
-                          child: const Text('update'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () async {
-                            final myDoc = FirebaseFirestore.instance
-                                .doc("books/${documentSnapshot.id}");
-
-                            try {
-                              await myDoc.delete();
-                            } catch (e) {
-                              if (kDebugMode) {
-                                print(e);
-                              }
-                            }
-                          },
-                          child: const Text('delete'),
-                        ),
-                      ],
-                    ),
-                    // getUserName(context, streamSnapshot, documentSnapshot.id),
-                    //Text('asd')
-                  ],
                 );
               },
             );
@@ -429,5 +510,67 @@ class _AddBooksState extends State<AddBooks> {
             ),
           );
         });
+  }
+
+  showAlertDialog(BuildContext context, String docId, String bookName,
+      {bool collection = false}) {
+    // set up the buttons
+    Widget cancelButton = TextButton(
+      child: const Text("إلغاء"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+    Widget continueButton = TextButton(
+      child: const Text("مسح"),
+      onPressed: () async {
+        Navigator.pop(context);
+
+        late CollectionReference<Map<String, dynamic>> users;
+        late DocumentReference<Map<String, dynamic>> myDoc;
+        if (collection) {
+          users = FirebaseFirestore.instance.collection('books/$docId/users');
+        }
+        if (!collection) {
+          myDoc = FirebaseFirestore.instance.doc(docId);
+        }
+
+        try {
+          if (collection) {
+            var snapshots = await users.get();
+            for (var doc in snapshots.docs) {
+              await doc.reference.delete();
+            }
+          }
+          if (!collection) {
+            await myDoc.delete();
+          }
+        } catch (e) {
+          if (kDebugMode) {
+            print(e);
+          }
+        }
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("مسح"),
+      content: collection
+          ? const Text("هل تريد مسح القائمة")
+          : Text("هل تريد مسح الكتاب $bookName"),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }

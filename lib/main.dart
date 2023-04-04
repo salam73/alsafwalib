@@ -1,8 +1,12 @@
+import 'package:alsafwalib/screens/books_list.dart';
+import 'package:alsafwalib/screens/home_page.dart';
+import 'package:alsafwalib/screens/research_list.dart';
 import 'package:alsafwalib/screens/user_page.dart';
 import 'package:alsafwalib/views/add_books.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'firebase_options2.dart';
+import 'firebase_options.dart';
+import 'screens/admin_page.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -23,8 +27,9 @@ class MyApp extends StatelessWidget {
         title: 'مكتبة الصفوة',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.amber,
         ),
+
         home:
             // PickUpScreen()
             // FirebaseScreen(part: 'تحليلات',)
@@ -34,8 +39,11 @@ class MyApp extends StatelessWidget {
             //   NotionApi(),
             //  const UserPage()
             // Books()
-            // AdminPage()
-            const AddBooks()
+            const UserPage()
+        // const HomePge()
+        //   const AddBooks()
+        //BooksList(part: 'تخدير')
+        // ResearchList(part: 'تخدير')
         //  ExamplePage()
         );
   }
