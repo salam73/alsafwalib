@@ -389,16 +389,9 @@ class _AddBooksState extends State<AddBooks> {
                                       if (loadingProgress == null) {
                                         return child;
                                       }
-                                      return Center(
+                                      return const Center(
                                         child: CircularProgressIndicator(
-                                          value: loadingProgress
-                                                      .expectedTotalBytes !=
-                                                  null
-                                              ? loadingProgress
-                                                      .cumulativeBytesLoaded /
-                                                  loadingProgress
-                                                      .expectedTotalBytes!
-                                              : null,
+
                                         ),
                                       );
                                     },
