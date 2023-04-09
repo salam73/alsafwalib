@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 import '../../Constant/constant.dart';
+import '../../Constant/general_widget.dart';
 
 class BooksLevelFour extends StatelessWidget {
   const BooksLevelFour({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('كتب المرحله الرابعة'),
-      ),
+    return Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+        appBar: GeneralWidget.MyAppBar(name: 'المرحلة الرابعة'),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -63,7 +64,7 @@ class BooksLevelFour extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 

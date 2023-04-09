@@ -2,16 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../Constant/constant.dart';
+import '../../Constant/general_widget.dart';
 
 class BooksLevelThree extends StatelessWidget {
   const BooksLevelThree({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('المرحلة الثالثه'),
-      ),
+    return Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+        appBar: GeneralWidget.MyAppBar(name: 'المرحلة الثالثة'),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -60,7 +61,7 @@ class BooksLevelThree extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 

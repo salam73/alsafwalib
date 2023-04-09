@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:alsafwalib/screens/admin_page.dart';
 import 'package:alsafwalib/screens/main_page.dart';
+import 'package:get/get.dart';
 
 import '../Constant/general_widget.dart';
 
@@ -18,10 +19,7 @@ class UserPage extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MainPage()));
+                  Get.to(const MainPage());
                   },
                   child: const Card(
                     elevation: 5,
@@ -36,10 +34,7 @@ class UserPage extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AdminPage()));
+                   Get.to(const AdminPage());
                   },
                   child: const Card(
                     child: SizedBox(

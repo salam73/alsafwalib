@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../Constant/constant.dart';
+import '../../Constant/general_widget.dart';
 
 class BooksLevelTwo extends StatelessWidget {
   const BooksLevelTwo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('المرحلة الثانية'),),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: GeneralWidget.MyAppBar(name: 'المرحلة الثانية'),
+
+
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -120,7 +125,7 @@ class BooksLevelTwo extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ),),
     );
   }
   nameWidget({String? name,String? path}){

@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:alsafwalib/screens/books.dart';
 import 'package:alsafwalib/screens/research.dart';
 import 'package:alsafwalib/screens/steps.dart';
+import 'package:get/get.dart';
 
 import '../Constant/constant.dart';
 import '../Constant/general_widget.dart';
@@ -11,10 +11,7 @@ class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
 
 
-  getItems(){
-    final CollectionReference books=FirebaseFirestore.instance.collection('books/0iLCBezOPlIbnjLNqth0/users');
 
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +27,7 @@ class MainPage extends StatelessWidget {
 
               InkWell(
                 onTap: (){
-                  Navigator.push(
-                    context,MaterialPageRoute(builder: (context)=>const Steps())
-                  );
+                  Get.to(const Steps());
                 },
                 child:  Card(
                   color: Constant().classLibraryColor,

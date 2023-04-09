@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   tab_container: ^2.0.0
   flutter_vector_icons:
+  get:
   notion_api:
   url_launcher:
   firebase_core:
@@ -72,7 +73,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/loading.gif    - assets/
+    - assets/loading.gif
+    - assets/
 
   #   - images/a_dot_ham.jpeg
 
