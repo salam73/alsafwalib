@@ -25,23 +25,7 @@ class Books extends StatelessWidget {
                   sectionName(context,'قانون'),
                   sectionName(context,'صيدلة'),
                   sectionName(context,'تخدير'),
-                /*  InkWell(
-                    onTap: (){
-                      Navigator.push(
-                          context,MaterialPageRoute(builder: (context)=> MathBooks())
-                      );
-                    },
-                    child:  Card(
-                      color: Constant().mainClassColor,
-                      child: SizedBox(
-                        width: 150,
-                        height: 60,
-                        child: Center(
-                          child: Text('رياضيات'),
-                        ),
-                      ),
-                    ),
-                  ),*/
+
 
                 ],
               ),
@@ -65,7 +49,7 @@ class Books extends StatelessWidget {
     return  InkWell(
       onTap: (){
         Navigator.push(
-            context,MaterialPageRoute(builder: (context)=> BooksList(part: name,))
+            context,MaterialPageRoute(builder: (context)=> BooksList(deparmentName: name,))
         );
       },
       child:  Card(

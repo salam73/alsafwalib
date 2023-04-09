@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:alsafwalib/screens/level_one/books_level_one.dart';
-import 'package:alsafwalib/screens/level_three/books_level_three.dart';
-import 'package:alsafwalib/screens/level_two/books_level_two.dart';
+import 'package:alsafwalib/screens/levels/books_level_one.dart';
+import 'package:alsafwalib/screens/levels/books_level_three.dart';
+import 'package:alsafwalib/screens/levels/books_level_two.dart';
 
 import '../Constant/constant.dart';
 import '../Constant/general_widget.dart';
-import 'level_four/books_level_four.dart';
 import 'package:get/get.dart';
+
+import 'levels/books_level_four.dart';
 
 class Steps extends StatelessWidget {
   const Steps({Key? key}) : super(key: key);

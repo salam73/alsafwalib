@@ -213,17 +213,18 @@ class _AddBooksState extends State<AddBooks> {
                     tabs: [
                       SizedBox(
                         height: 30,
-                        child: Text('رفع الكتاب'),
+                        child: Text('قائمة الكتب'),
                       ),
                       SizedBox(
                         height: 30,
-                        child: Text('قائمة الكتب'),
+                        child: Text('رفع الكتاب'),
                       ),
+
                     ],
                   ),
                 ),
                 body: TabBarView(
-                  children: [uploadBook(), booksList()],
+                  children: [ booksList(),uploadBook(),],
                 ),
               ),
             ),

@@ -143,17 +143,18 @@ class _AddResearchState extends State<AddResearch> {
                     tabs: [
                       SizedBox(
                         height: 30,
-                        child: Text('رفع البحث'),
+                        child: Text('قائمة البحوث'),
                       ),
                       SizedBox(
                         height: 30,
-                        child: Text('قائمة البحوث'),
+                        child: Text('رفع البحث'),
                       ),
+
                     ],
                   ),
                 ),
                 body: TabBarView(
-                  children: [uploadBook(), researchBookList()],
+                  children: [ researchBookList(),uploadBook()],
                 ),
               ),
             ),
@@ -316,16 +317,7 @@ class _AddResearchState extends State<AddResearch> {
                       ElevatedButton(
                         onPressed: ()  {
                           showAlertDialog(context,"books2/${documentSnapshot.id}",documentSnapshot['name']);
-                         /* final myDoc = FirebaseFirestore.instance
-                              .doc("books2/${documentSnapshot.id}");
 
-                          try {
-                            await myDoc.delete();
-                          } catch (e) {
-                            if (kDebugMode) {
-                              print(e);
-                            }
-                          }*/
                         },
                         child: const Text('مسح البحث'),
                       ),

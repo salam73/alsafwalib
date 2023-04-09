@@ -7,9 +7,9 @@ import '../Constant/general_widget.dart';
 class BooksList extends StatefulWidget {
   BooksList({
     Key? key,
-    required this.part,
+    required this.deparmentName,
   }) : super(key: key);
-  final String part;
+  final String deparmentName;
 
   @override
   State<BooksList> createState() => _BooksListState();
@@ -21,12 +21,11 @@ class _BooksListState extends State<BooksList> {
   String? _name;
   String? _collage;
   String? _idNumber;
-  String? _currentSelectedValue;
 
-  Query<Map<String, dynamic>> getStream() {
+  Query<Map<String, dynamic>> getBooksByDepartment() {
     Query<Map<String, dynamic>> books = FirebaseFirestore.instance
         .collection('books')
-        .where('الأقسام', isEqualTo: widget.part);
+        .where('الأقسام', isEqualTo: widget.deparmentName);
 
 
     return books;
@@ -53,11 +52,11 @@ class _BooksListState extends State<BooksList> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
 
-        appBar: GeneralWidget.MyAppBar(name: widget.part),
+        appBar: GeneralWidget.MyAppBar(name: widget.deparmentName),
         body: Directionality(
           textDirection: TextDirection.rtl,
           child: StreamBuilder(
-              stream: getStream().snapshots(),
+              stream: getBooksByDepartment().snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
                 if (streamSnapshot.hasData) {
                   return ListView.builder(
