@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 class Constant{
   //static String notionToken='secret_88gGWGqUtnkmrL3Ed6PkRqVl8Szo3ARGZt0q7AmO5CI';
 
-  Color classLibraryColor=const Color(0XffD0f4de);
+  Color classLibraryColor=const Color(0Xffbd9a48);
   Color mainClassColor=const Color(0Xffade8f4);
   Color researchBooksColor=const Color(0Xfff8edeb);
 
