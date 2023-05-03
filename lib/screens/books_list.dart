@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../Constant/general_widget.dart';
 
@@ -333,6 +334,12 @@ class _BooksListState extends State<BooksList> {
                             "time": DateTime.now(),
                           });
                           // ignore: use_build_context_synchronously
+                          Get.snackbar(
+                            "استعارة",
+                            "تم الإستعارة",
+
+
+                          );
                           Navigator.pop(context);
                         } catch (e) {
                           print(e);
