@@ -18,32 +18,37 @@ class Steps extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: GeneralWidget.MyAppBar(name: 'هندسة تقنيات الحاسوب'),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              getMarhala( 'المرحلة الاولى', const BooksLevelOne()),
-              getMarhala( 'المرحلة الثانية', const BooksLevelTwo()),
-              getMarhala( 'المرحلة الثالثة', const BooksLevelThree()),
-              getMarhala( 'المرحلة الرابعة', const BooksLevelFour()),
-
-
-            ],
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg.jpeg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                getMarhala('المرحلة الاولى', const BooksLevelOne()),
+                getMarhala('المرحلة الثانية', const BooksLevelTwo()),
+                getMarhala('المرحلة الثالثة', const BooksLevelThree()),
+                getMarhala('المرحلة الرابعة', const BooksLevelFour()),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-
-  getMarhala(String title,  Widget name){
-   return  InkWell(
+  getMarhala(String title, Widget name) {
+    return InkWell(
       onTap: () {
-      Get.to(name);
+        Get.to(name);
       },
       child: Card(
         color: Constant().classLibraryColor,
-        child:  SizedBox(
+        child: SizedBox(
           width: 300,
           height: 60,
           child: Center(

@@ -13,46 +13,54 @@ class Books extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: GeneralWidget.MyAppBar(name: 'كتب عامة'),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                children:  [
-                  sectionName(context,'هندسة'),
-                  sectionName(context,'قانون'),
-                  sectionName(context,'صيدلة'),
-                  sectionName(context,'تخدير'),
-
-
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                children:  [
-                  sectionName(context,'تحليلات'),
-                  sectionName(context,'طب أسنان'),
-                  sectionName(context,'التربية الرياضية'),
-                  sectionName(context,'الادارة والاقتصاد'),
-                ],
-              ),
-            ],
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg.jpeg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    sectionName(context, 'هندسة'),
+                    sectionName(context, 'قانون'),
+                    sectionName(context, 'صيدلة'),
+                    sectionName(context, 'تخدير'),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    sectionName(context, 'تحليلات'),
+                    sectionName(context, 'طب أسنان'),
+                    sectionName(context, 'التربية الرياضية'),
+                    sectionName(context, 'الادارة والاقتصاد'),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-  sectionName(context, name){
-    return  InkWell(
-      onTap: (){
+
+  sectionName(context, name) {
+    return InkWell(
+      onTap: () {
         Navigator.push(
-            context,MaterialPageRoute(builder: (context)=> BooksList(deparmentName: name,))
-        );
+            context,
+            MaterialPageRoute(
+                builder: (context) => BooksList(
+                      deparmentName: name,
+                    )));
       },
-      child:  Card(
+      child: Card(
         color: Constant().mainClassColor,
         child: SizedBox(
           width: 150,
@@ -64,5 +72,4 @@ class Books extends StatelessWidget {
       ),
     );
   }
-
 }

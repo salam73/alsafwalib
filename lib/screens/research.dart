@@ -13,56 +13,65 @@ class Research extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: GeneralWidget.MyAppBar(name: 'بحوث التخرج'),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              /*'إدارة أعمال',
-              'التربية الرياضية',
-              'تحليلات',
-              'تخدير',
-              'صيدلة',
-              'طب أسنان',
-              'قانون',
-              'هندسة',*/
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg.jpeg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                /*'إدارة أعمال',
+                'التربية الرياضية',
+                'تحليلات',
+                'تخدير',
+                'صيدلة',
+                'طب أسنان',
+                'قانون',
+                'هندسة',*/
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                 myCard('صيدلة', context),
-                 myCard('طب أسنان', context),
-                 myCard('قانون', context),
-                 myCard('إدارة أعمال', context),
-
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  myCard('هندسة', context),
-                  myCard('تحليلات', context),
-                  myCard('التربية الرياضية', context),
-                  myCard('تخدير', context),
-
-
-                ],
-              ),
-            ],
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    myCard('صيدلة', context),
+                    myCard('طب أسنان', context),
+                    myCard('قانون', context),
+                    myCard('إدارة أعمال', context),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    myCard('هندسة', context),
+                    myCard('تحليلات', context),
+                    myCard('التربية الرياضية', context),
+                    myCard('تخدير', context),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-  Widget myCard(String name, BuildContext context){
+
+  Widget myCard(String name, BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         Navigator.push(
-            context,MaterialPageRoute(builder: (context)=> ResearchList(part: name,))
-        );
+            context,
+            MaterialPageRoute(
+                builder: (context) => ResearchList(
+                      part: name,
+                    )));
       },
       child: Card(
         color: Constant().researchBooksColor,
-        child:  SizedBox(
+        child: SizedBox(
           width: 150,
           height: 60,
           child: Center(

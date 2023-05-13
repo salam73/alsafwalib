@@ -16,59 +16,74 @@ class HomePge extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: GeneralWidget.MyAppBar(name:'اختر القسم',),
-        body: Center(
-            child: Container(
-         child: Row(
-           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children:  [
-            InkWell(
-              onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AddBooks()));
-              },
-              child:  Card(
-                color: Constant().mainClassColor,
-                child: SizedBox(
-                  width: 150,
-                  height: 60,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Text('📚', style: TextStyle(fontSize: 30),),
-                      Text('كتـــــب عامـــــــــة'),
-                    ],
+        appBar: GeneralWidget.MyAppBar(
+          name: 'اختر القسم',
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/bg.jpeg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+              child: Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddBooks()));
+                    },
+                    child: Card(
+                      color: Constant().mainClassColor,
+                      child: SizedBox(
+                        width: 150,
+                        height: 60,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: const [
+                            Text(
+                              '📚',
+                              style: TextStyle(fontSize: 30),
+                            ),
+                            Text('كتـــــب عامـــــــــة'),
+                          ],
+                        ),
+                      ),
+                    )),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AddResearch()));
+                  },
+                  child: Card(
+                    color: Constant().researchBooksColor,
+                    child: SizedBox(
+                      width: 150,
+                      height: 60,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text(
+                            '🎓',
+                            style: TextStyle(fontSize: 30),
+                          ),
+                          Text('بـــــحوث التـــــخرج'),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              )
+              ],
             ),
-            InkWell(
-              onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AddResearch()));
-              },
-              child:  Card(
-                color: Constant().researchBooksColor,
-                child: SizedBox(
-                  width: 150,
-                  height: 60,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      Text('🎓', style: TextStyle(fontSize: 30),),
-                      Text('بـــــحوث التـــــخرج'),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-         ),
-        )),
+          )),
+        ),
       ),
     );
   }

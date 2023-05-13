@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.alsafwa.lib" "\0"
-            VALUE "FileDescription", "alsafwalib" "\0"
+            VALUE "CompanyName", "com.example" "\0"
+            VALUE "FileDescription", "snaya" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "alsafwalib" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 com.alsafwa.lib. All rights reserved." "\0"
-            VALUE "OriginalFilename", "alsafwalib.exe" "\0"
-            VALUE "ProductName", "alsafwalib" "\0"
+            VALUE "InternalName", "snaya" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "snaya.exe" "\0"
+            VALUE "ProductName", "snaya" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

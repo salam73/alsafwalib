@@ -196,7 +196,7 @@ class _AddBooksState extends State<AddBooks> {
               length: 2,
               child: Scaffold(
                 appBar: AppBar(
-                  backgroundColor: const Color(0xff893422),
+                  backgroundColor: const Color(0xffb29c6e),
                   elevation: 0,
                   iconTheme: const IconThemeData(
                     color: Colors.white, //change your color here
@@ -219,12 +219,14 @@ class _AddBooksState extends State<AddBooks> {
                         height: 30,
                         child: Text('رفع الكتاب'),
                       ),
-
                     ],
                   ),
                 ),
                 body: TabBarView(
-                  children: [ booksList(),uploadBook(),],
+                  children: [
+                    booksList(),
+                    uploadBook(),
+                  ],
                 ),
               ),
             ),
@@ -391,9 +393,7 @@ class _AddBooksState extends State<AddBooks> {
                                         return child;
                                       }
                                       return const Center(
-                                        child: CircularProgressIndicator(
-
-                                        ),
+                                        child: CircularProgressIndicator(),
                                       );
                                     },
                                   )),

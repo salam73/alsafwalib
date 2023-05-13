@@ -126,7 +126,7 @@ class _AddResearchState extends State<AddResearch> {
               length: 2,
               child: Scaffold(
                 appBar: AppBar(
-                  backgroundColor: Color(0xff893422),
+                  backgroundColor: const Color(0xffb29c6e),
                   elevation: 0,
                   iconTheme: const IconThemeData(
                     color: Colors.white, //change your color here
@@ -149,12 +149,11 @@ class _AddResearchState extends State<AddResearch> {
                         height: 30,
                         child: Text('رفع البحث'),
                       ),
-
                     ],
                   ),
                 ),
                 body: TabBarView(
-                  children: [ researchBookList(),uploadBook()],
+                  children: [researchBookList(), uploadBook()],
                 ),
               ),
             ),
@@ -277,7 +276,7 @@ class _AddResearchState extends State<AddResearch> {
                 return Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     /*  subtitle:
                         getUserName(context, streamSnapshot, documentSnapshot.id),*/
                     children: [
@@ -288,7 +287,7 @@ class _AddResearchState extends State<AddResearch> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Wrap(
-                             // mainAxisAlignment: MainAxisAlignment.start,
+                              // mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -306,7 +305,7 @@ class _AddResearchState extends State<AddResearch> {
                                     SizedBox(
                                         child: Text(
                                             'الرف       : ${documentSnapshot['raf'].toString()}')),
-                                         //   Text(documentSnapshot.id)
+                                    //   Text(documentSnapshot.id)
                                   ],
                                 ),
                               ],
@@ -315,9 +314,11 @@ class _AddResearchState extends State<AddResearch> {
                         ),
                       ),
                       ElevatedButton(
-                        onPressed: ()  {
-                          showAlertDialog(context,"books2/${documentSnapshot.id}",documentSnapshot['name']);
-
+                        onPressed: () {
+                          showAlertDialog(
+                              context,
+                              "books2/${documentSnapshot.id}",
+                              documentSnapshot['name']);
                         },
                         child: const Text('مسح البحث'),
                       ),
@@ -339,34 +340,30 @@ class _AddResearchState extends State<AddResearch> {
           );
         });
   }
-  showAlertDialog(BuildContext context, String docId, String bookName) {
 
+  showAlertDialog(BuildContext context, String docId, String bookName) {
     // set up the buttons
     Widget cancelButton = TextButton(
       child: const Text("إلغاء"),
-      onPressed:  () {
+      onPressed: () {
         Navigator.pop(context);
       },
     );
     Widget continueButton = TextButton(
       child: const Text("مسح"),
-      onPressed:  () async{
+      onPressed: () async {
         Navigator.pop(context);
-        final myDoc = FirebaseFirestore.instance
-            .doc(docId);
+        final myDoc = FirebaseFirestore.instance.doc(docId);
 
         try {
           await myDoc.delete();
-
         } catch (e) {
           if (kDebugMode) {
             print(e);
           }
         }
-
       },
     );
-
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
