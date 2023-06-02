@@ -42,7 +42,7 @@ dependencies:
   url_launcher:
   firebase_core:
   firebase_database: ^10.0.14
-  cloud_firestore: ^4.4.4
+  cloud_firestore: ^4.7.1
   image_picker: ^0.8.7
   file_picker:
   firebase_storage:

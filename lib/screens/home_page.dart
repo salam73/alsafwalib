@@ -40,12 +40,12 @@ class HomePge extends StatelessWidget {
                     },
                     child: Card(
                       color: Constant().mainClassColor,
-                      child: SizedBox(
+                      child: const SizedBox(
                         width: 150,
                         height: 60,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
+                          children: [
                             Text(
                               '📚',
                               style: TextStyle(fontSize: 30),

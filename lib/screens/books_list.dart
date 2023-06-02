@@ -334,7 +334,7 @@ class _BooksListState extends State<BooksList> {
                           // print(myDoc.get());
                           try {
                             await myDoc.update({
-                              "available": !available,
+                              "available": false,
                             });
 
                             final ref = FirebaseFirestore.instance
